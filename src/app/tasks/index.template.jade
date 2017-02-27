@@ -1,0 +1,24 @@
+.create-task
+  .create-task__input
+    input.form-control(placeholder="Введите название задачи" ng-model="vm.new_task.title")
+  .create-task__button
+    button.btn.btn-default(ng-click="vm.create()" ng-disabled="!vm.new_task.title") Создать!
+
+.tasks-list(dnd-list="vm.tasks")
+  .tasks-list__task(ng-repeat="task in vm.tasks" dnd-draggable="task" dnd-moved="vm.moveTask($index)")
+    .tasks-list__task__title(ng-if="!task.editting")
+      span {{task.title}}
+    .tasks-list__task__edit(ng-if="!task.editting" ng-click="vm.toggleEditting(task)")
+      i.fa.fa-pencil
+    .tasks-list__task__editting(ng-if="task.editting")
+      .tasks-list__task__editting__title
+        input.form-control(placeholder="Введите название задачи" ng-model="task.title")
+      .tasks-list__task__editting__control.tasks-list__task__editting__confirm(ng-click="vm.updateTask(task)")
+        i.fa.fa-check
+      .tasks-list__task__editting__control.tasks-list__task__editting__cancel(ng-click="vm.cancelEditting(task)")
+        i.fa.fa-ban
+    .tasks-list__task__completed
+      span Завершено:
+      input(type="checkbox" ng-change="vm.toggleCompleted(task)" ng-model="task.completed")
+    .tasks-list__task__destroy(ng-click="vm.removeTask(task)")
+      i.fa.fa-remove

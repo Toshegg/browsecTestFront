@@ -1,0 +1,49 @@
+.create-task
+  width: 30%
+  margin: auto
+  display: flex
+  margin-top: 20px
+
+.create-task__input
+  flex-grow: 1
+
+.create-task__button
+  margin-left: 5px
+
+.tasks-list
+  display: flex
+  flex-flow: column
+  align-items: center
+  margin-top: 10px
+
+.tasks-list__task
+  padding: 5px 10px
+  border: 1px solid #f5c401
+  border-radius: 5px
+  width: 30%
+  font-size: 15px
+  display: flex
+  align-items: center
+
+.tasks-list__task__edit
+  margin-left: 5px
+  cursor: pointer
+
+.tasks-list__task__editting
+  display: flex
+  align-items: center
+
+.tasks-list__task__editting__control
+  margin-left: 5px
+  cursor: pointer
+
+.tasks-list__task + .tasks-list__task
+  margin-top: 10px
+
+.tasks-list__task__completed
+  margin-left: auto
+
+.tasks-list__task__destroy
+  margin-left: 5px
+  color: #666
+  cursor: pointer
